@@ -1,0 +1,7 @@
+train: C:/Users/xduc2/PycharmProjects/Graduation/Data/train
+val: C:/Users/xduc2/PycharmProjects/Graduation/Data/valid
+
+
+nc: 5
+names: ['acne', 'eye_infection', 'hairloss', 'lump_and_bump', 'ringworm']
+

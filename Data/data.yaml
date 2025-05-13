@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 5
+names: ['acne', 'eye_infection', 'hairloss', 'lump_and_bump', 'ringworm']
+
+roboflow:
+  workspace: data-science-tat7t
+  project: sick-cat
+  version: 19
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/data-science-tat7t/sick-cat/dataset/19
