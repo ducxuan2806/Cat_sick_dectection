@@ -20,7 +20,7 @@ class CatSickDetectionApp:
             initial_sidebar_state="expanded"
         )
         st.title("Interactive Interface for Cat Sicks Detection")
-        st.sidebar.header("DL Model Config")
+        st.sidebar.header("Menu")
 
     def load_model(self):
         task_type = st.sidebar.selectbox(
@@ -54,7 +54,7 @@ class CatSickDetectionApp:
             st.exception(e)
 
     def select_source_and_infer(self):
-        st.sidebar.header("Image/Video Config")
+        st.sidebar.header("Source Config")
 
         source = st.sidebar.selectbox(
             "Select Source",
