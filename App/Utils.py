@@ -178,12 +178,11 @@ class Utils:
                 annotated_frame, _ = self.display_detected_frames(frame_rgb)
                 st_frame.image(annotated_frame, channels="RGB")
 
-                # Dừng nếu nhấn nút Stop
+
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     break
 
             vid_cap.release()
-            cv2.destroyAllWindows()
         except Exception as e:
             st.error(f"Error accessing webcam: {e}")
 
