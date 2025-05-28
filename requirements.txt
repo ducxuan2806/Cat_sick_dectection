@@ -1,3 +1,8 @@
+numpy==1.24.1
+torch==2.2.2
+torchvision==0.17.2
+
+# Các phần còn lại: dùng phiên bản mới an toàn hoặc giữ nguyên
 altair==5.5.0
 attrs>=23.1
 blinker>=1.6
@@ -22,10 +27,9 @@ MarkupSafe>=2.1
 matplotlib>=3.7
 mpmath>=1.2
 networkx>=3.1
-numpy>=1.25
 opencv-python-headless>=4.7
 packaging>=23.2
-pandas>=2.2
+pandas>=2.1
 pillow>=10.2
 protobuf>=4.25
 psutil>=5.9
@@ -48,8 +52,6 @@ streamlit==1.45.1
 sympy>=1.12
 tenacity>=8.2
 toml>=0.10
-torch==2.2.2
-torchvision==0.17.2
 tornado>=6.2
 tqdm>=4.66
 typing_extensions>=4.10
