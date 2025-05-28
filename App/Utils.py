@@ -1,4 +1,6 @@
 import tempfile
+import time
+
 import numpy as np
 import cv2
 import pandas as pd
@@ -43,71 +45,6 @@ class Utils:
                         with col2:
                             st.image(annotated_frame, caption="Detected Result", use_container_width=True)
 
-
-    # def infer_uploaded_video(self):
-    #     source_video = st.sidebar.file_uploader(
-    #         label="Choose a video...",
-    #         type = ("mp4", "avi", "flv", "mov", "wmv")
-    #     )
-    #     col1, col2 = st.columns(2)
-    #
-    #     with col1:
-    #         if source_video:
-    #             st.video(source_video)
-    #
-    #     if source_video:
-    #         if st.button("Execution"):
-    #             with st.spinner("Running..."):
-    #                 try:
-    #                     tfile = tempfile.NamedTemporaryFile()
-    #                     tfile.write(source_video.read())
-    #                     vid_cap = cv2.VideoCapture(
-    #                         tfile.name)
-    #                     while (vid_cap.isOpened()):
-    #                         success, image = vid_cap.read()
-    #                         if success:
-    #                             image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    #                             annotated_frame, _ = self.display_detected_frames(image)
-    #                             st.image(annotated_frame, channels="RGB")
-    #                         else:
-    #                             vid_cap.release()
-    #                             break
-    #                 except Exception as e:
-    #                     st.error(f"Error loading video: {e}")
-    #
-    #
-    # def infer_uploaded_webcam(self):
-    #     try:
-    #         flag = st.button(
-    #             label="Stop running"
-    #         )
-    #
-    #         vid_cap = cv2.VideoCapture(0)  # local camera
-    #         col1, col2 = st.columns(2)
-    #
-    #         with col1:
-    #             st_frame = st.empty()  # Placeholder for webcam feed
-    #
-    #         with col2:
-    #             label_placeholder = st.empty()
-    #         while vid_cap.isOpened() and not flag:
-    #             success, image = vid_cap.read()
-    #             if success:
-    #                 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    #                 st_frame.image(image, channels = "RGB")
-    #                 annotated_frame, _ = self.display_detected_frames(image)
-    #                 st.image(annotated_frame, channels="RGB")
-    #
-    #             else:
-    #                 vid_cap.release()
-    #                 break
-    #
-    #             if cv2.waitKey(1) & 0xFF == ord('q') or flag:
-    #                 break
-    #         vid_cap.release()
-    #         cv2.destroyAllWindows()
-    #     except Exception as e:
-    #         st.error(f"Error loading video: {str(e)}")
     def infer_uploaded_video(self):
         source_video = st.sidebar.file_uploader(
             label="Choose a video...",
@@ -151,9 +88,14 @@ class Utils:
 
                         vid_cap.release()
                         out.release()
+                        time.sleep(0.5)
+
+                        # Đọc lại video để hiển thị
+                        with open(output_path, "rb") as f:
+                            video_bytes = f.read()
 
                         st.success("Execution completed. Annotated video below:")
-                        st.video(output_path)
+                        st.video(video_bytes)
 
                         with open(output_path, "rb") as f:
                             st.download_button("Download annotated video", f, "annotated_video.mp4")
@@ -177,10 +119,6 @@ class Utils:
                 frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 annotated_frame, _ = self.display_detected_frames(frame_rgb)
                 st_frame.image(annotated_frame, channels="RGB")
-
-
-                if cv2.waitKey(1) & 0xFF == ord('q'):
-                    break
 
             vid_cap.release()
         except Exception as e:

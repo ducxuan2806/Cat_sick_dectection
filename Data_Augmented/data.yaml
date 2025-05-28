@@ -1,0 +1,6 @@
+train: /content/sample_data/train
+val: /content/sample_data/valid
+
+
+nc: 5
+names: ['acne', 'eye_infection', 'hairloss', 'lump_and_bump', 'ringworm']

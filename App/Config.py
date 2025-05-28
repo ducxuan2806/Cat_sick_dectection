@@ -22,7 +22,6 @@ SOURCES_LIST = ["Image", "Video", "Webcam"]
 # DL model config
 DETECTION_MODEL_DIR = ROOT
 Model_dictionary = {"cat_sick_yolo11n": DETECTION_MODEL_DIR / "cat_sick_yolo11n.pt",
-                    "cat_sick_yolo11s": DETECTION_MODEL_DIR / "cat_sick_yolo11s.pt",
                     "cat_sick_yolo11m": DETECTION_MODEL_DIR / "cat_sick_yolo11m.pt",
                     "cat_sick_yolo11l": DETECTION_MODEL_DIR / "cat_sick_yolo11l.pt",
                     }
@@ -30,7 +29,6 @@ Model_dictionary = {"cat_sick_yolo11n": DETECTION_MODEL_DIR / "cat_sick_yolo11n.
 
 DETECTION_MODEL_LIST = [
     "cat_sick_yolo11n",
-"cat_sick_yolo11s",
 "cat_sick_yolo11m",
 "cat_sick_yolo11l",
 ]

@@ -1,8 +1,8 @@
 
-sick cat - v19 doesn-nt preprocess
+sick cat - v21 2025-05-18 11:57pm
 ==============================
 
-This dataset was exported via roboflow.com on May 13, 2025 at 7:16 AM GMT
+This dataset was exported via roboflow.com on May 18, 2025 at 4:57 PM GMT
 
 Roboflow is an end-to-end computer vision platform that helps you
 * collaborate with your team on computer vision projects
@@ -21,6 +21,9 @@ The dataset includes 192 images.
 Acne are annotated in YOLOv11 format.
 
 The following pre-processing was applied to each image:
+* Auto-orientation of pixel data (with EXIF-orientation stripping)
+* Resize to 640x640 (Stretch)
+* Auto-contrast via histogram equalization
 
 No image augmentation techniques were applied.
 
